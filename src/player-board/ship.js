@@ -1,9 +1,12 @@
-export function Ship(l = 0) {
+export function Ship(l = 0, o = "H") {
     let len = l
+    let orientation = o
     let hits = 0
     let coords = []
     const length = () => { return len }
+    const getDir = () => { return orientation }
     const getHits = () => { return hits }
+    const getCoords = () => { return coords }
     
     function itSunk(){
         return hits >= len
@@ -28,5 +31,5 @@ export function Ship(l = 0) {
     function sameCoord(first, second){
         return first[0] == second[0] && first[1] == second[1]
     } 
-    return { length, hit, getHits, itSunk, addCoord }
+    return { length, hit, getHits, itSunk, addCoord, getCoords, getDir }
 }

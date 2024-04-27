@@ -15,6 +15,8 @@ body {
    display: flex;
    flex-direction: column;
    align-items: center;
+   justify-content: center;
+   height: 100svh;
 }
 
 section {
@@ -29,14 +31,23 @@ section>div {
    flex-direction: column;
 }
 
-dialog {
-   background-color: var(--dialog);
+form {
+   background-color: var(--item);
    display: flex;
    flex-direction: column;
-   position: fixed;
-   left: 500px;
-   top: 100px;
+   height: min-content;
+   padding: 1em;
 
+}
+:modal{
+   background-color: var(--dialog);
+   color: azure;
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+   border-color: #31304D;
+   border-radius: 10px;
 }
 
 input {
@@ -44,22 +55,27 @@ input {
 }
 
 button {
+   margin: 10px 12px;
    padding: 5px 10px;
-   background-color: #5765a0;
+   background-color: var(--layout);
+   color: greenyellow;
+   border-radius: 8px;
 }
 
 .space {
    background-color: var(--item);
-   width: 500px;
-   height: 80svh;
+   color: greenyellow;
+   width: 440px;
+   height: 520px;
 }
 
 .board {
    background-color: var(--layout);
    width: 400px;
    height: 400px;
-   margin: auto;
-   margin-top: 20px;
+   margin: 10px 20px;
+   display: flex;
+   flex-direction: column;
 }
 
 .info {
@@ -76,49 +92,88 @@ button {
    padding: 10px 20px;
 }
 
-.board {
-   display: flex;
-   flex-direction: column;
-}
-
 .row {
    height: 40px;
    display: flex;
 }
 
 .box {
-   border: 1px solid rgb(0, 126, 38);
+   outline: 1px solid rgb(0, 126, 38);
    width: 40px;
    cursor: crosshair;
    transition: transform 0.5s;
 }
 
-.box:hover {
-   outline: 1px groove cyan;
-   z-index: 5;
-   animation: pulse-animation 2s infinite;
+.box:not(.hit):hover{
+   outline: 3px groove cyan;
+   z-index: 8;
+   animation: pulse-animation 1.8s infinite;
 }
 
 @keyframes pulse-animation {
-   0% {
-      box-shadow: inset 0 0 0 0px rgba(0, 255, 225, 0.5);
-   }
-
-   100% {
-      box-shadow: inset 0 0 0 8px rgba(0, 255, 225, 0.0);
-   }
+   0% { box-shadow: inset 0 0 0 0px rgba(0, 255, 225, 0.8); }
+   100% { box-shadow: inset 0 0 0 6px rgba(0, 255, 225, 0.0);}
 }
 .box:active{
-   transform: scale(0.86);
+   transform: scale(0.92);
+}
+ #board-one .row .ship{
+   cursor: cell;
 }
 .ship{
-   background-color: green;
+   background-color: #00cc6da2;
+   outline-color: rgb(0, 255, 0);
+   z-index: 5;
+}
+.ship:hover{
+   outline: 3px groove greenyellow;
 }
 .hit {
-   border-color: red;
+   outline-color: red;
    background-color: darkred;
+   z-index: 5;
+   animation: explosion 0.5s;
+}
+.sunk{
+   background-color: rgb(73, 0, 0);
+}
+
+@keyframes explosion{
+   0% { box-shadow: 0 0 0 0px orangered; }
+   100% { box-shadow: 0 0 0 14px rgba(255, 251, 0, 0); }
 }
 
 .fail {
-   background-color: rgb(56, 0, 187);
+   background-color: darkblue;
+}
+.warn {
+   box-shadow: inset 0 0 0 2px rgb(100, 0, 0);
+   outline-color: rgb(100, 0, 0);
+   z-index: 3;
+}
+
+#create-info{
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   background-color: var(--layout);
+   color: greenyellow;
+   font-size: 1.4em;
+   font-family: 'Share Tech Mono', monospace;
+   width: 300px;
+}
+#selector{
+   display: flex;
+   justify-content: space-around;
+   width: 300px;
+}
+.selected{
+   box-shadow: inset 0 0 0 4px rgb(0, 219, 84);
+   background-color: #00cc6da2;
+   z-index: 3;
+}
+.bad{
+   box-shadow: inset 0 0 0 4px rgb(219, 0, 0);
+   background-color: rgb(73, 0, 0);
+   z-index: 3;
 }

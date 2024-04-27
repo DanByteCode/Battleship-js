@@ -85,12 +85,12 @@ describe("Game Test", ()=>{
     const game = new Game()
     game.init("Danny")
     test("Current player name",()=>{
-        expect(game.getCurrentPlayer()).toBe("Danny")
+        expect(game.getCurrentPlayer()).toBe("Player 2")
     })
     test("Player turn", ()=>{
         expect(game.play([0,0])).toBeFalsy()
     })
     test("Current second player name",()=>{
-        expect(game.getCurrentPlayer()).toBe("Player 2")
+        expect(game.getCurrentPlayer()).toBe("Danny")
     })
 })

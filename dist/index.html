@@ -4,38 +4,48 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Battleship</title>
-    <link rel="stylesheet" href="./style/style.css">
+   
     <script type="module" src="main.js" defer></script>
 </head>
 <body>
     <header>
-        <h1>BATTLESHIP</h1></header>
-        <section id="game">
-            <div id="player-one" class="space">
-                <div id="board-one" class="board"></div>
-                <div class="info">
-                    <span id="name-one">PLAYER 1</span>
-                    <div id="ships"><img src="/src/img/ship_ico.png" width="20" height="20"  alt="ships player one">
-                        <span id="count-one">3/3</span>
-                    </div>
-                </div>
-            </div>
-            <dialog id="initial" hidden>
-                <h3>ORGANIZE THE FLEET</h3>
-                <div id="storage"></div>
-                <input id="input-one" type="text" value="Player 1">
-                <button type="button" id="btn">CONFIRM</button>
-            </dialog>
-            <div id="player-two" class="space">
-                <div id="board-two" class="board"></div>
-                <div class="info">
-                    <span id="name-two">COMPUTER</span>
-                    <div id="ships"><img src="/src/img/ship_ico.png" width="20" height="20" alt="ships player two">
-                        <span id="count-two">3/3</span>
-                    </div>
-                </div>
-            </div>
-        </section>
+        <h1>BATTLESHIP</h1>
     </header>
+    <section id="game">
+        <div id="player-one" class="space">
+            <div class="info">
+                <span id="name-one">PLAYER</span>
+                <div id="ships"><img src="/src/img/ship_ico.png" width="20" height="20" alt="ships player one">
+                    <span id="count-one" class="ship-count"></span>
+                </div>
+            </div>
+            <div id="board-one" class="board"></div>
+        </div>
+        <form id="initial">
+            <div id="create-info">
+                <h4 id="ship-name">ORGANIZE THE FLEET</h4>
+                    <div>
+                        <p id="ship-size">▸ Drag to move</p>
+                        <p id="ship-stock">▸ Click to Rotate</p>       
+                    </div>
+                </div>
+            </div>
+            <button type="button" id="btn">CONFIRM</button>
+        </form>
+        <div id="player-two" class="space" hidden>
+            <div class="info">
+                <span id="name-two">COMPUTER</span>
+                <div id="ships"><img src="/src/img/ship_ico.png" width="20" height="20" alt="ships player two">
+                    <span id="count-two" class="ship-count"></span>
+                </div>
+            </div>
+            <div id="board-two" class="board"></div>
+        </div>
+    </section>
+    <dialog id="modal">
+        <h2 id="game-over">GAME OVER</h2>
+        <button id="btn-new">NEW GAME</button>
+
+    </dialog>
 </body>
 </html>
