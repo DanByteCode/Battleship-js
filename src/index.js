@@ -1,3 +1,4 @@
+import './style/style.scss'
 import { Game } from "./game.js";
 import { $g, $c, $t } from "./dom-controler.js";
 
@@ -13,8 +14,8 @@ function Main() {
       createBoard("board-one", true)
       gameStatus()
       $g("btn").addEventListener("click", () => {
-         $g("initial").setAttribute("hidden", "true")
-         $g("player-two").removeAttribute("hidden")
+         $g("initial").classList.add("hide")
+         $g("player-two").classList.remove("hide")
          enable = false
          showShips()
       })
@@ -33,8 +34,8 @@ function Main() {
       $g("board-two").innerHTML = ""
       createBoard("board-two")
       createBoard("board-one", true)
-      $g("player-two").setAttribute("hidden", "true")
-      $g("initial").removeAttribute("hidden")
+      $g("initial").classList.remove("hide")
+      $g("player-two").classList.add("hide")
       gameStatus()
       showShips()
    }
